@@ -1,45 +1,70 @@
-import React, {
-  useEffect,
-  createContext,
-  useReducer,
-  useContext
-} from "react";
-import {
-  Route,
-  Switch
-} from "react-router-dom";
-//import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "./components/Navbar";
-import Signin from "./components/Login";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
+import axios from "axios";
 
-/*const Routing = () => {
-  const history = useHistory();
-  //const { state, dispatch } = useContext(UserContext);
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-      //dispatch({ type: "USER", payload: user });
-    } else {
-      if (!history.location.pathname.startsWith("/reset"))
-        history.push("/signin");
-    }
-  }, []); */
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
+import Home from "./components/Home";
+
+import PrivateRoute from "./Utils/PrivateRoute";
+import PublicRoute from "./Utils/PublicRoute";
+import { getToken, removeUserSession, setUserSession } from "./Utils/Common";
 
 function App() {
-  return ( <
-    div >
-    <
-    NavBar / >
-    <
-    Switch >
-    <
-    Route exact path = "/" >
-    <
-    Signin / >
-    <
-    /Route> < /
-    Switch > <
-    /div>
+  const [authLoading, setAuthLoading] = useState(true);
+
+  useEffect(() => {
+    const token = getToken();
+    if (!token) {
+      return;
+    }
+
+    axios
+      .get(`http://localhost:3000/verifyToken?token=${token}`)
+      .then((response) => {
+        setUserSession(response.data.token, response.data.user);
+        setAuthLoading(false);
+      })
+      .catch((error) => {
+        removeUserSession();
+        setAuthLoading(false);
+      });
+  }, []);
+
+  if (authLoading && getToken()) {
+    return <div className="content"> Checking Authentication... </div>;
+  }
+
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <div>
+          <div className="header">
+            <NavLink exact activeClassName="active" to="/">
+              {" "}
+              Home{" "}
+            </NavLink>{" "}
+            <NavLink activeClassName="active" to="/login">
+              {" "}
+              Login{" "}
+            </NavLink>{" "}
+            <small> (Access without token only) </small>{" "}
+            <NavLink activeClassName="active" to="/dashboard">
+              {" "}
+              Dashboard{" "}
+            </NavLink>{" "}
+            <small> (Access with token only) </small>{" "}
+          </div>{" "}
+          <div className="content">
+            <Switch>
+              <Route exact path="/" component={Home} />{" "}
+              <PublicRoute path="/login" component={Login} />{" "}
+              <PrivateRoute path="/dashboard" component={Dashboard} />{" "}
+            </Switch>{" "}
+          </div>{" "}
+        </div>{" "}
+      </BrowserRouter>{" "}
+    </div>
   );
 }
 
