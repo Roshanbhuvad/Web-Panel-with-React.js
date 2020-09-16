@@ -3,8 +3,10 @@ const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
-dotenv.config();
+const cors = require("cors");
 
+dotenv.config();
+app.use(cors());
 // connect to db
 mongoose.connect(
   process.env.DB_CONNECT,
@@ -27,4 +29,4 @@ app.use(express.json()); // for body parser
 app.use("/api/user", authRoutes);
 app.use("/api/dashboard", verifyToken, dashboardRoutes);
 
-app.listen(3000, () => console.log("server is running..."));
+app.listen(3001, () => console.log("server is running..."));
