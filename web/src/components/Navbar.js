@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
+import "../navbar.css";
+import Dropdown from "./Dropdown";
+import Information from "./Information";
+
 
 class NavBar extends Component {
   logOut(e) {
@@ -45,7 +49,9 @@ class NavBar extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+     <div className="navbar" >
+      <div>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded">
         <button
           className="navbar-toggler"
           type="button"
@@ -60,11 +66,18 @@ class NavBar extends Component {
 
         <div
           className="collapse navbar-collapse justify-content-md-center"
-          id="navbarsExample10"
-        >
+          id="navbarsExample10">
           {localStorage.usertoken ? userLink : loginRegLink}
+          </div>
+          </nav>
+          <div>
+            <Dropdown />
+          </div>
+          <div>
+          <Information />
+          </div>
         </div>
-      </nav>
+      </div>
     );
   }
 }
