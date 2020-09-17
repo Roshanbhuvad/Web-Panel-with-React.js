@@ -29,4 +29,4 @@ app.use(express.json()); // for body parser
 app.use("/api/user", authRoutes);
 app.use("/api/dashboard", verifyToken, dashboardRoutes);
 
-app.listen(3001, () => console.log("server is running..."));
+app.listen(8000, () => console.log("server is running on port no. 8000..."));
