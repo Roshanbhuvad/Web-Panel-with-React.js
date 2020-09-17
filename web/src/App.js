@@ -4,7 +4,7 @@ import LoginPage from "./Pages/LoginPage";
 import RegisterPage from "./Pages/RegisterPage";
 import Dashboard from "./Pages/Dashboard";
 import IndexPage from "./Pages/IndexPage";
-
+import Todolist from "./Pages/Todolist"
 
 import makeToast from "./Toaster";
 

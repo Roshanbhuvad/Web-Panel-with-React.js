@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-
+import Dropdown from "./Dropdown";
 import config from "../config";
-
+import Todolist from "./Todolist";
 const Dashboard = () => {
   const [dashboard, setDashboard] = useState(null);
   const history = useHistory();
@@ -35,7 +35,7 @@ const Dashboard = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="/">
-          Application to handle Authentication using ReactJS
+          User Web Panel
         </a>
         <button
           className="navbar-toggler"
@@ -52,10 +52,17 @@ const Dashboard = () => {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
               <a className="nav-link" href="/dashboard">
-                Dashboard <span className="sr-only">(current)</span>
+                Home <span className="sr-only">(current)</span>
               </a>
             </li>
             <li className="nav-item">
+              <span
+                className="nav-link cursor-pointer">
+                Tasks
+                <Todolist />
+              </span>
+            </li>
+             <li className="nav-item">
               <span
                 className="nav-link cursor-pointer"
                 onClick={() => logout()}
@@ -67,6 +74,7 @@ const Dashboard = () => {
           <span className="navbar-text">Welcome! {dashboard?.user?.name}</span>
         </div>
       </nav>
+      <div><Dropdown /></div>
       <div className="px-3">
         <h1>{dashboard?.title}</h1>
         <p>{dashboard?.content}</p>
