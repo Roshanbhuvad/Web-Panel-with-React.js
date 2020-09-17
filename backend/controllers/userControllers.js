@@ -46,3 +46,8 @@ exports.login = async (req, res) => {
     token,
   });
 };
+exports.getuserDetails = async (req, res) => {
+  const user = await User.find({});
+
+  res.json(user);
+};

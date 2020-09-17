@@ -61,6 +61,12 @@ const Dashboard = () => {
                  Task <span className="sr-only">(current)</span>
               </a>
             </li>
+            <li className="nav-item active">
+              <a
+                className="nav-link" href="/user">
+                 User <span className="sr-only">(current)</span>
+              </a>
+            </li>
              <li className="nav-item">
               <span
                 className="nav-link cursor-pointer"
