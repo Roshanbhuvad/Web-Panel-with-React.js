@@ -55,12 +55,11 @@ const Dashboard = () => {
                 Home <span className="sr-only">(current)</span>
               </a>
             </li>
-            <li className="nav-item">
-              <span
-                className="nav-link cursor-pointer">
-                Tasks
-                <Todolist />
-              </span>
+            <li className="nav-item active">
+              <a
+                className="nav-link" href="/todolist">
+                 Task <span className="sr-only">(current)</span>
+              </a>
             </li>
              <li className="nav-item">
               <span

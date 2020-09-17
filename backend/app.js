@@ -11,7 +11,7 @@ app.use(require("cors")());
 // route middlewares
 app.use("/user", require("./routes/user"));
 app.use("/dashboard", require("./routes/dashboard"));
-
+app.use("/todolist", require("./routes/todolist"));
 const errorHandlers = require("./handlers/errorHandlers");
 app.use(errorHandlers.notFound);
 app.use(errorHandlers.mongooseErrors);

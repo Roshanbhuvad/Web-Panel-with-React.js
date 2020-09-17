@@ -7,22 +7,22 @@
    {
      value: 'USD',
      label: '$',
-     description: "US Dollar"
+     description: "The United States dollar is the official currency of the United States and its territories per the Coinage Act of 1792. One dollar is divided into 100 cents, or into 1000 mills for accounting and taxation purposes"
    },
    {
      value: 'EUR',
      label: '€',
-     description: "European Euro"
+     description: "The euro is the official currency of 19 of the 27 member states of the European Union. This group of states is known as the eurozone or euro area and includes about 343 million citizens as of 2019."
    },
    {
      value: 'BTC',
      label: '฿',
-     description: "BitCoin"
+     description: "It is a decentralized digital currency without a central bank or single administrator that can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries. ... Bitcoins are created as a reward for a process known as mining"
    },
    {
      value: 'JPY',
      label: '¥',
-     description: "Japanese Yen"
+     description: "The yen is the official currency of Japan. It is the third most traded currency in the foreign exchange market after the United States dollar and the Euro. It is also widely used as a reserve currency after the U.S. dollar, the Euro, and the U.K. pound sterling."
    },
  ];
  

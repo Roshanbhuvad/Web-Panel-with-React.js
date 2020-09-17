@@ -21,6 +21,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/" component={IndexPage} exact />
+        <Route path="/todolist" component={Todolist} exact />
         <Route
           path="/login"
           render={() => <LoginPage />}

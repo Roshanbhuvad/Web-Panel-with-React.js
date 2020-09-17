@@ -12,7 +12,7 @@ const Todolist = () => {
 
     const getData = async () => {
 
-        const response = await axios.get(URL)
+        const response = await axios.get("http://jsonplaceholder.typicode.com/todos")
         setTodolist(response.data)
     }
 
