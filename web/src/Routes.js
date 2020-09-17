@@ -12,13 +12,7 @@ import Register from "./Pages/Register/Register";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import NotFound from "./Pages/NotFound/NotFound";
 
-const authGuard = (Component) => () => {
-  return localStorage.getItem("token") ? (
-    <Component />
-  ) : (
-    <Redirect to="/login" />
-  );
-};
+
 const Routes = (props) => (
   <Router {...props}>
     <Switch>

@@ -1,7 +1,7 @@
 const router = require("express").Router();
-
+const auth = require("../middlewares/auth");
 // dashboard route
-router.get("/", (req, res) => {
+router.get("/", auth,(req, res) => {
   res.json({
     error: null,
     data: {

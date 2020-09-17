@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import config from "../../config";
+import config from "../config";
 
 const Dashboard = () => {
   const [dashboard, setDashboard] = useState(null);
@@ -22,7 +22,7 @@ const Dashboard = () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"),
+        "auth-token": localStorage.getItem("CC_Token"),
       },
     })
       .then((res) => res.json())
