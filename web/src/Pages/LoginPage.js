@@ -1,7 +1,7 @@
 import React from "react";
 import makeToast from "../Toaster";
 import axios from "axios";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 const LoginPage = (props) => {
   const emailRef = React.createRef();
@@ -58,6 +58,9 @@ const LoginPage = (props) => {
           />
         </div>
         <button onClick={loginUser}>Login</button>
+        <h6>
+          <Link to="/register">Don't have an account ?</Link>
+        </h6>
       </div>
     </div>
   );

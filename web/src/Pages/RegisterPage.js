@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import makeToast from "../Toaster";
 import { withRouter, Link } from "react-router-dom";
+
+
 const RegisterPage = (props) => {
   const nameRef = React.createRef();
   const emailRef = React.createRef();
@@ -68,6 +70,9 @@ const RegisterPage = (props) => {
         />
       </div>
       <button onClick={registerUser}>Register</button>
+      <h6>
+          <Link to="/login">Already have an account ?</Link>
+        </h6>
     </div>
   );
 };
